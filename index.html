@@ -16,7 +16,7 @@
         <% for (var row = 0; row < data.rows; row++) { %>
         <div class="row">
             <% for (var column = 0; column < data.rows; column++) { var item = row * 3 + column; %>
-            <div class="tile" id= "<%- item %>">
+            <div class="tile" draggable="true" id= "<%- item %>">
                 <img src="assets/images/<%= item+1 %>.jpeg">
             </div>
             <% } %>

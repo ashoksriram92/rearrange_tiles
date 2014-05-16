@@ -56,3 +56,60 @@ var templateData = {
 $(".container").append(
     template(templateData)
 );
+
+
+// DragNDrop eventListeners
+// TODO Structure code better using Backbone.js
+function handleDragStart(e) {
+    this.style.opacity = '0.4';  // this / e.target is the source node.
+}
+
+function handleDragOver(e) {
+    if (e.preventDefault) {
+        e.preventDefault(); // Necessary. Allows us to drop.
+    }
+
+    e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+
+    return false;
+}
+
+function handleDragEnter(e) {
+    // this / e.target is the current hover target.
+    this.classList.add('over');
+}
+
+function handleDragLeave(e) {
+    this.classList.remove('over');  // this / e.target is previous target element.
+}
+
+function handleDrop(e) {
+    // this / e.target is current target element.
+
+    if (e.stopPropagation) {
+        e.stopPropagation(); // stops the browser from redirecting.
+    }
+
+    // See the section on the DataTransfer object.
+
+    return false;
+}
+
+function handleDragEnd(e) {
+    this.style.opacity = '1';
+    _.each(tiles, function(tile) {
+        tile.classList.remove("over");
+    });
+}
+
+var tiles = $(".container").find(".tile");
+_.each(tiles, function(tile){
+    tile.addEventListener('dragstart', handleDragStart, false);
+    tile.addEventListener('dragenter', handleDragEnter, false);
+    tile.addEventListener('dragover', handleDragOver, false);
+    tile.addEventListener('dragleave', handleDragLeave, false);
+    tile.addEventListener('dragend', handleDragEnd, false);
+    tile.addEventListener('drop', handleDrop, false);
+
+});
+
