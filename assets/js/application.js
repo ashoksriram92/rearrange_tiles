@@ -14,39 +14,39 @@ var templateData = {
     contents    : [
         {
             image   :   "assets/images/1.jpeg",
-            value   :   1
+            value   :   0
         },
         {
             image   :   "assets/images//2.jpeg",
-            value   :   2
+            value   :   1
         },
         {
             image   :   "assets/images/3.jpeg",
-            value   :   3
+            value   :   2
         },
         {
             image   :   "assets/images/4.jpeg",
-            value   :   4
+            value   :   3
         },
         {
             image   :   "assets/images/5.jpeg",
-            value   :   5
+            value   :   4
         },
         {
             image   :   "assets/images/6.jpeg",
-            value   :   6
+            value   :   5
         },
         {
             image   :   "assets/images/7.jpeg",
-            value   :   7
+            value   :   6
         },
         {
             image   :   "assets/images/8.jpeg",
-            value   :   8
+            value   :   7
         },
         {
             image   :   "assets/images/9.jpeg",
-            value   :   9
+            value   :   8
         }
         ]
     }
@@ -61,6 +61,7 @@ $(".container").append(
 // DragNDrop eventListeners
 // TODO Structure code better using Backbone.js
 function handleDragStart(e) {
+    this.style.opacity = '0.4';
     dragSrcEl = this;
 
     e.dataTransfer.effectAllowed = 'all';
@@ -87,12 +88,15 @@ function handleDragLeave(e) {
 }
 
 function handleDrop(e) {
-    // this / e.target is current target element.
 
     if (e.stopPropagation) {
         e.stopPropagation(); // stops the browser from redirecting.
     }
 
+    // Makes source tile opaque again on drop
+    dragSrcEl.style.opacity = '1';
+
+    // Removes the border on any tile on drop
     _.each(tiles, function(tile) {
         tile.classList.remove("over");
     });
@@ -103,14 +107,12 @@ function handleDrop(e) {
         dragSrcEl.innerHTML = this.innerHTML;
         this.innerHTML = e.dataTransfer.getData('text/html');
     }
-    // See the section on the DataTransfer object.
 
     return false;
 }
 
 function handleDragEnd(e) {
-    this.style.opacity = '1';
-
+    // Nothing needed as of now
 }
 
 var dragSrcEl;
