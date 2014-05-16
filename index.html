@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Rearrange tiles</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/application.css"/>
+    <script type="text/javascript" src="assets/js/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="assets/js/underscore.js"></script>
+</head>
+<body>
+    <!-- Underscore template which contains the wireframe for the game -->
+    <script type="text/template" class="template">
+        <% var columns = data.rows; %>
+
+        <% for (var row = 0; row < data.rows; row++) { %>
+        <div class="row">
+            <% for (var column = 0; column < data.rows; column++) { var item = row * 3 + column; %>
+            <div class="tile" id= "<%- item %>">
+                <img src="assets/images/<%= item+1 %>.jpeg">
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </script>
+
+
+    <div class="container">
+    </div>
+
+    <!--
+     Took a while to figure this out!
+     Browsers execute JS as and when they encounter them.
+     So, if the application.js is loaded in head, the it would be trying to find the template
+     before it was even parsed by the browser.
+     Result : Nasty "calling some-method of undefined" error
+    -->
+    <script type="text/javascript" src="assets/js/application.js"></script>
+
+</body>
+</html>

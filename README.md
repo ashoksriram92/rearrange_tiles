@@ -19,9 +19,9 @@ Future improvements:
 
 Technical details:
 Planning to use 
-1)jQuery
-2)Backbone.js
-3)Underscore.js
+1)jQuery        ->  Imagine life without this?
+2)Backbone.js   ->  Front End framework
+3)Underscore.js ->  templating
 
 No server side.
 No plans to host app as of now.
