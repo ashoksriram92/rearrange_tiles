@@ -4,24 +4,41 @@ rearrange_tiles
 A simple javascript based game where the player has to rearrange a set of jumbled tiles in the correct order.
 
 Input:
+------
 A 9X9 board with numbers arranges in some random order. 
 
 End condition:
+--------------
 A board contains the numbers from 1-9 in correct order.
 
 Game rules:
-1) Player can drag and drop tiles.
-2) Dropping a tile will swap the two tiles. (Easy game huh!)
+-----------
+- Player can drag and drop tiles.
+- Dropping a tile will swap the two tiles. (Easy game huh!)
 
 Future improvements:
-1) Player has to arrange the tiles within a given time.
-2) Difficulty level -> lesser time to arrange
+--------------------
+- Player has to arrange the tiles within a given time.
+- Difficulty level -> lesser time to arrange, more tiles
+- Split an image into 9 square parts and use it to generate the tiles.
 
-Technical details:
+Tools and Libraries:
+--------------------
 Planning to use 
-1)jQuery        ->  Imagine life without this?
-2)Backbone.js   ->  Front End framework
-3)Underscore.js ->  templating
+- jQuery        ->  Imagine life without this?
+- Backbone.js   ->  Front End framework
+- Underscore.js ->  templating
 
+Additional details:
+-------------------
 No server side.
-No plans to host app as of now.
+No plans to host app.
+
+Status:
+-------
+P0 requirements are done. Game is ready to be played
+
+Open issue:
+-----------
+- Upon completion of the game, the last moved tile (the associated image) is opened by default. Should suppress it.
+- Dragging tiles outside the container makes it translucent, even after the tile is dropped (albeit outside the container)
