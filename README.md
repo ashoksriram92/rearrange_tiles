@@ -41,4 +41,4 @@ P0 requirements are done. Game is ready to be played
 Open issue:
 -----------
 - Upon completion of the game, the last moved tile (the associated image) is opened by default. Should suppress it. [Closed]
-- Dragging tiles outside the container makes it translucent, even after the tile is dropped (albeit outside the container)
+- Dragging tiles outside the container makes it translucent, even after the tile is dropped (albeit outside the container) [Closed]

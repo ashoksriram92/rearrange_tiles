@@ -121,7 +121,8 @@ function handleDrop(e) {
 }
 
 function handleDragEnd(e) {
-    // Nothing needed as of now
+    // Fix for [Issue #2] See readme for more details
+    dragSrcEl.style.opacity = '1';
 }
 
 var dragSrcEl;
