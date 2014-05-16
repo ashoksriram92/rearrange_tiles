@@ -61,7 +61,10 @@ $(".container").append(
 // DragNDrop eventListeners
 // TODO Structure code better using Backbone.js
 function handleDragStart(e) {
-    this.style.opacity = '0.4';  // this / e.target is the source node.
+    dragSrcEl = this;
+
+    e.dataTransfer.effectAllowed = 'all';
+    e.dataTransfer.setData('text/html', this.innerHTML);
 }
 
 function handleDragOver(e) {
@@ -69,7 +72,7 @@ function handleDragOver(e) {
         e.preventDefault(); // Necessary. Allows us to drop.
     }
 
-    e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+    e.dataTransfer.dropEffect = 'all';  // See the section on the DataTransfer object.
 
     return false;
 }
@@ -90,6 +93,16 @@ function handleDrop(e) {
         e.stopPropagation(); // stops the browser from redirecting.
     }
 
+    _.each(tiles, function(tile) {
+        tile.classList.remove("over");
+    });
+
+    // Don't do anything if dropping the same column we're dragging.
+    if (dragSrcEl != this) {
+        // Set the source column's HTML to the HTML of the column we dropped on.
+        dragSrcEl.innerHTML = this.innerHTML;
+        this.innerHTML = e.dataTransfer.getData('text/html');
+    }
     // See the section on the DataTransfer object.
 
     return false;
@@ -97,11 +110,10 @@ function handleDrop(e) {
 
 function handleDragEnd(e) {
     this.style.opacity = '1';
-    _.each(tiles, function(tile) {
-        tile.classList.remove("over");
-    });
+
 }
 
+var dragSrcEl;
 var tiles = $(".container").find(".tile");
 _.each(tiles, function(tile){
     tile.addEventListener('dragstart', handleDragStart, false);
