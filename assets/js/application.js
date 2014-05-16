@@ -53,7 +53,7 @@ var templateData = {
 
 
 // Rendering template with templateData
-$(".container").append(
+$(".container .row .col-md-5").append(
     template(templateData)
 );
 
@@ -89,9 +89,6 @@ function handleDragLeave(e) {
 
 function handleDrop(e) {
 
-    if (e.stopPropagation) {
-        e.stopPropagation(); // stops the browser from redirecting.
-    }
 
     // Makes source tile opaque again on drop
     dragSrcEl.style.opacity = '1';
@@ -111,7 +108,13 @@ function handleDrop(e) {
     var solved = verifyCorrectness();
 
     if (solved) {
-        alert("You have solved the puzzle! Congratulations!");
+        $(".container .alert-success").css("display" , "block");
+    } else {
+        $(".container .alert-success").css("display" , "none");
+    }
+
+    if (e.stopPropagation) {
+        e.stopPropagation(); // stops the browser from redirecting.
     }
 
     return false;
