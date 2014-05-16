@@ -17,7 +17,7 @@ var templateData = {
             value   :   0
         },
         {
-            image   :   "assets/images//2.jpeg",
+            image   :   "assets/images/2.jpeg",
             value   :   1
         },
         {
@@ -108,6 +108,12 @@ function handleDrop(e) {
         this.innerHTML = e.dataTransfer.getData('text/html');
     }
 
+    var solved = verifyCorrectness();
+
+    if (solved) {
+        alert("You have solved the puzzle! Congratulations!");
+    }
+
     return false;
 }
 
@@ -127,3 +133,18 @@ _.each(tiles, function(tile){
 
 });
 
+verifyCorrectness = function() {
+    var previousValue;
+    var result = true;
+    var images = $(".container").find("img");
+    _.each(images, function(image) {
+        var currentValue = parseInt(image.dataset["value"]);
+        if (previousValue === undefined || currentValue === previousValue+1) {
+            previousValue = currentValue;
+        } else {
+            result = false;
+        }
+    });
+
+    return result;
+}

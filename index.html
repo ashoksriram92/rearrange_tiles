@@ -27,8 +27,8 @@
         <% for (var row = 0; row < data.rows; row++) { %>
         <div class="row">
             <% for (var column = 0; column < data.rows; column++) { var item = randomItem(itemPool); %>
-            <div class="tile" data-value="<%- item %>" draggable="true" id= "<%- item %>">
-                <img src="<%= data.contents[item].image %>">
+            <div class="tile" draggable="true" id= "<%- item %>">
+                    <img data-value="<%- item %>" src="<%= data.contents[item].image %>">
             </div>
             <% } %>
         </div>
