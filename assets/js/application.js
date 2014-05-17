@@ -103,7 +103,7 @@ function handleDrop(e) {
     if (dragSrcEl != this) {
         // Increment number of moves
         numMoves++;
-        $(".move-count").html("Moves : " + numMoves);
+        $(".move-count").html("<strong>Moves</strong> : " + numMoves);
 
         // Set the source column's HTML to the HTML of the column we dropped on.
         dragSrcEl.innerHTML = this.innerHTML;
