@@ -62,3 +62,20 @@
     background-position:-300px -300px
 }
 
+ul {
+    list-style-type: none;
+    padding-left: 1px;
+}
+
+.puzzleType {
+    border-bottom: yellowgreen;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    padding-bottom: 2px;
+    padding-top: 10px;
+}
+
+.puzzleType:hover{
+    border-bottom-width: 4px ;
+    cursor: pointer;
+}

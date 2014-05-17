@@ -16,7 +16,7 @@ Game rules:
 - Player can drag and drop tiles.
 - Dropping a tile will swap the two tiles.
 - Number of moves taken to complete the puzzle is shown
-- Player can upload image which can be used to play the game [Done in code for now]
+- Player can select from a number of available puzzles
 
 Future improvements:
 --------------------
@@ -24,6 +24,7 @@ Future improvements:
 - Difficulty level -> lesser time to arrange, more tiles
 - Make board size customizable
 - Make player select an image from the browser
+- Clean code by structuring 
 
 Tools and Libraries:
 --------------------
@@ -45,3 +46,4 @@ Open issue:
 -----------
 - Upon completion of the game, the last moved tile (the associated image) is opened by default. Should suppress it. [Closed]
 - Dragging tiles outside the container makes it translucent, even after the tile is dropped (albeit outside the container) [Closed]
+- image names are sometimes undefined resulting in GET error while loading image. Not consistently reproduceable.
