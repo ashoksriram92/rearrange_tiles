@@ -5,24 +5,24 @@ A simple javascript based game where the player has to rearrange a set of jumble
 
 Input:
 ------
-A 9X9 board with numbers arranges in some random order. 
+A 9X9 board with parts of an image scrambled in some random order. 
 
 End condition:
 --------------
-A board contains the numbers from 1-9 in correct order.
+A board contains a complete image
 
 Game rules:
 -----------
 - Player can drag and drop tiles.
-- Dropping a tile will swap the two tiles. (Easy game huh!)
+- Dropping a tile will swap the two tiles.
+- Number of moves taken to complete the puzzle is shown
 
 Future improvements:
 --------------------
 - Player has to arrange the tiles within a given time.
 - Difficulty level -> lesser time to arrange, more tiles
-- Split an image into 9 square parts and use it to generate the tiles.
-- Show number of moves taken to complete the puzzle
 - Make board size customizable
+- Player can upload image which can be used to play the game
 
 Tools and Libraries:
 --------------------
