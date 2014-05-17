@@ -1,5 +1,11 @@
 .container .tile { border: 1px solid #ffffff; float: left }
 .container .tile.over { border: 1px solid #000; }
+.move-count {
+    position: absolute;
+    top: 250px;
+    right: 220px;
+    padding: 35px;
+}
 [draggable] {
     -moz-user-select: none;
     -khtml-user-select: none;

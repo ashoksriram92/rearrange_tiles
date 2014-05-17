@@ -93,6 +93,7 @@ function handleDrop(e) {
     // Makes source tile opaque again on drop
     dragSrcEl.style.opacity = '1';
 
+
     // Removes the border on any tile on drop
     _.each(tiles, function(tile) {
         tile.classList.remove("over");
@@ -100,6 +101,10 @@ function handleDrop(e) {
 
     // Don't do anything if dropping the same column we're dragging.
     if (dragSrcEl != this) {
+        // Increment number of moves
+        numMoves++;
+        $(".move-count").html("Moves : " + numMoves);
+
         // Set the source column's HTML to the HTML of the column we dropped on.
         dragSrcEl.innerHTML = this.innerHTML;
         this.innerHTML = e.dataTransfer.getData('text/html');
@@ -127,6 +132,7 @@ function handleDragEnd(e) {
 
 var dragSrcEl;
 var tiles = $(".container").find(".tile");
+var numMoves = 0;
 _.each(tiles, function(tile){
     tile.addEventListener('dragstart', handleDragStart, false);
     tile.addEventListener('dragenter', handleDragEnter, false);
