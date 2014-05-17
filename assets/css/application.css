@@ -1,4 +1,7 @@
-.container .tile { border: 1px solid #ffffff; float: left }
+.container .tile {
+    border: 1px solid #ffffff; float: left;
+
+}
 .container .tile.over { border: 1px solid #000; }
 .move-count {
     position: absolute;
@@ -15,3 +18,47 @@
     -khtml-user-drag: element;
     -webkit-user-drag: element;
 }
+
+.puzzle {
+    border: 1px solid #ffffff;
+    width:150px;
+    height:150px;
+    float: left;
+}
+
+.piece1 {
+    background-position:0 0
+}
+
+.piece2 {
+    background-position:-150px 0px
+}
+
+.piece3 {
+    background-position:-300px 0px
+}
+
+.piece4 {
+    background-position:0px -150px
+}
+
+.piece5 {
+    background-position:-150px -150px
+}
+
+.piece6 {
+    background-position:-300px -150px
+}
+
+.piece7 {
+    background-position:0px -300px
+}
+
+.piece8 {
+    background-position:-150px -300px
+}
+
+.piece9 {
+    background-position:-300px -300px
+}
+

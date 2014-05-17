@@ -16,13 +16,14 @@ Game rules:
 - Player can drag and drop tiles.
 - Dropping a tile will swap the two tiles.
 - Number of moves taken to complete the puzzle is shown
+- Player can upload image which can be used to play the game [Done in code for now]
 
 Future improvements:
 --------------------
 - Player has to arrange the tiles within a given time.
 - Difficulty level -> lesser time to arrange, more tiles
 - Make board size customizable
-- Player can upload image which can be used to play the game
+- Make player select an image from the browser
 
 Tools and Libraries:
 --------------------

@@ -11,44 +11,7 @@ var template = _.template(
 // Data against which the template will be rendered
 var templateData = {
     rows        : 3,
-    contents    : [
-        {
-            image   :   "assets/images/1.jpeg",
-            value   :   0
-        },
-        {
-            image   :   "assets/images/2.jpeg",
-            value   :   1
-        },
-        {
-            image   :   "assets/images/3.jpeg",
-            value   :   2
-        },
-        {
-            image   :   "assets/images/4.jpeg",
-            value   :   3
-        },
-        {
-            image   :   "assets/images/5.jpeg",
-            value   :   4
-        },
-        {
-            image   :   "assets/images/6.jpeg",
-            value   :   5
-        },
-        {
-            image   :   "assets/images/7.jpeg",
-            value   :   6
-        },
-        {
-            image   :   "assets/images/8.jpeg",
-            value   :   7
-        },
-        {
-            image   :   "assets/images/9.jpeg",
-            value   :   8
-        }
-        ]
+    image       : "/rearrange_tiles/assets/images/puzzle1.jpg"
     }
 
 
@@ -57,6 +20,7 @@ $(".container .row .jumbotron").append(
     template(templateData)
 );
 
+$('.puzzle').css('background-image', 'url(' + templateData.image + ')');
 
 // DragNDrop eventListeners
 // TODO Structure code better using Backbone.js
@@ -146,9 +110,9 @@ _.each(tiles, function(tile){
 verifyCorrectness = function() {
     var previousValue;
     var result = true;
-    var images = $(".container").find("img");
-    _.each(images, function(image) {
-        var currentValue = parseInt(image.dataset["value"]);
+    var pieces = $(".container").find(".puzzle");
+    _.each(pieces, function(piece) {
+        var currentValue = parseInt(piece.dataset["value"]);
         if (previousValue === undefined || currentValue === previousValue+1) {
             previousValue = currentValue;
         } else {
