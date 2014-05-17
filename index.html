@@ -8,7 +8,7 @@
     <script type="text/javascript" src="assets/js/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="assets/js/underscore.js"></script>
 </head>
-<body>
+<body class="">
     <!-- Underscore template which contains the wireframe for the game -->
     <script type="text/template" class="template">
         <%
@@ -35,15 +35,26 @@
         <% } %>
     </script>
 
+    <div class="container">
+        <div class="page-header">
+            <h3 class="text-primary">Rearrange Tiles</h3>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-5">
-            </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <div class="alert alert-success" style="display: none">
                     You have solved the puzzle! Congratulations!
                 </div>
+
+
+                <p>
+                    Hi! To the right you can see a set of scrambled images. Please do me a favour and put them right.
+                </p>
+            </div>
+
+            <div class="col-md-6 jumbotron">
             </div>
         </div>
     </div>

@@ -53,7 +53,7 @@ var templateData = {
 
 
 // Rendering template with templateData
-$(".container .row .col-md-5").append(
+$(".container .row .jumbotron").append(
     template(templateData)
 );
 

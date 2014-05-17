@@ -1,5 +1,5 @@
-.container .tile { border: 2px solid #ffffff; float: left }
-.container .tile.over { border: 2px solid #000; }
+.container .tile { border: 1px solid #ffffff; float: left }
+.container .tile.over { border: 1px solid #000; }
 [draggable] {
     -moz-user-select: none;
     -khtml-user-select: none;
