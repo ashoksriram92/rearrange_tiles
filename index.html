@@ -11,29 +11,65 @@
 <body class="">
     <!-- Underscore template which contains the wireframe for the game -->
     <script type="text/template" class="template">
-        <%
-        var columns = data.rows;
-        var itemPool = [0,1,2,3,4,5,6,7,8];
+        <div class="game">
+            <a class="returnToList">
+                < Puzzle List
+            </a>
 
-        <!-- Guarantees to return unique random numbers within the itemPool -->
-        randomItem = function(itemPool) {
-                var index = Math.floor (itemPool.length * Math.random());
-                var returnValue = itemPool[index];
-                itemPool.splice (index, 1);
-                return returnValue;
-        }
-        %>
+            <h1 class="text-center">
+                <%= data.title %>
+            </h1>
+            <%
+            var columns = data.rows;
+            var itemPool = [0,1,2,3,4,5,6,7,8];
 
-        <% for (var row = 0; row < data.rows; row++) { %>
-        <div class="row">
-            <% for (var column = 0; column < data.rows; column++) { var item = randomItem(itemPool); %>
-            <div class="tile" draggable="true" id= "<%- item %>">
-                <div class="puzzle piece<%= item+1 %>" data-value="<%- item %>"></div>
+            <!-- Guarantees to return unique random numbers within the itemPool -->
+            randomItem = function(itemPool) {
+                    var index = Math.floor (itemPool.length * Math.random());
+                    var returnValue = itemPool[index];
+                    itemPool.splice (index, 1);
+                    return returnValue;
+            }
+            %>
+
+            <% for (var row = 0; row < data.rows; row++) { %>
+            <div class="row">
+                <% for (var column = 0; column < data.rows; column++) { var item = randomItem(itemPool); %>
+                <div class="tile" draggable="true" id= "<%- item %>">
+                    <div class="puzzle piece<%= item+1 %>" data-value="<%- item %>"></div>
+                </div>
+                <% } %>
             </div>
             <% } %>
         </div>
-        <% } %>
     </script>
+
+    <script type="text/template" class="puzzleList">
+        <div class = "puzzleList">
+            <h1 class="text-center">
+                Puzzles List
+            </h1>
+            <%
+                var puzzles = data.puzzles;
+            %>
+            <ul>
+                <% _.each (puzzles, function(puzzle){ %>
+                    <li>
+                        <%
+                            var image = puzzle["location"];
+                            var title = puzzle["title"];
+                            var puzzleLocation = "assets/images/" + image;
+                        %>
+                        <div class="puzzleType">
+                        <img src="<%= puzzleLocation %>" height="75px" width="75px" data-value="<%= image %>">
+                        <em> <%= title %></em>
+                        </div>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </script>
+
 
     <div class="container">
         <div class="page-header">
