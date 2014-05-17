@@ -21,6 +21,8 @@ Future improvements:
 - Player has to arrange the tiles within a given time.
 - Difficulty level -> lesser time to arrange, more tiles
 - Split an image into 9 square parts and use it to generate the tiles.
+- Show number of moves taken to complete the puzzle
+- Make board size customizable
 
 Tools and Libraries:
 --------------------
